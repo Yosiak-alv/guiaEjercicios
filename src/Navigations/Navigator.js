@@ -12,6 +12,10 @@ import { CreateEditPrescription } from "../screens/Prescriptions/CreateEditPresc
 import { Login } from "../screens/Login";
 import { Register } from "../screens/Register";
 
+import { RoutinesList } from "../screens/Routines/RoutinesList";
+import { DetailRoutine } from "../screens/Routines/DetailRoutine";
+import { CreateEditRoutine } from "../screens/Routines/CreateEditRoutine";
+
 
 const Tab = createBottomTabNavigator();
 const screenOptionsTabStyle = {
@@ -52,6 +56,17 @@ const BottomTabNavigator = () => {
                 }}
                 initialParams={{level: '', flashMessage: ''}}
             />
+            <Tab.Screen
+                name="RoutinesList"
+                component={RoutinesList}
+                options={{
+                    tabBarLabel: '',
+                    tabBarIcon: ({focused}) => (
+                        BottomTabItemIcon(Ionicons,24,'md-receipt-outline',focused) 
+                    ),
+                }}
+                initialParams={{level: '', flashMessage: ''}}
+            />
            
         </Tab.Navigator>
     )
@@ -72,6 +87,10 @@ export const AuthStackNavigator = () => {
             <Stack.Screen name="DetailPrescription" component={DetailPrescription} />
             <Stack.Screen name="CreateEditPrescription" component={CreateEditPrescription} />
 
+            <Stack.Screen name="RoutinesList" component={RoutinesList} />
+            <Stack.Screen name="DetailRoutine" component={DetailRoutine} />
+            <Stack.Screen name="CreateEditRoutine" component={CreateEditRoutine} />
+
         </Stack.Navigator>
     )
 };
@@ -85,6 +104,10 @@ export const GuestStackNavigator = () => {
             <Stack.Screen name="Home" component={BottomTabNavigator} />
             <Stack.Screen name="DetailPrescription" component={DetailPrescription} />
             <Stack.Screen name="CreateEditPrescription" component={CreateEditPrescription} />
+
+            <Stack.Screen name="RoutinesList" component={RoutinesList} />
+            <Stack.Screen name="DetailRoutine" component={DetailRoutine} />
+            <Stack.Screen name="CreateEditRoutine" component={CreateEditRoutine} />
 
         </Stack.Navigator>
     )

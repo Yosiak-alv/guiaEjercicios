@@ -32,11 +32,9 @@ export const CreateEditPrescription = ({navigation,route}) => {
             disease_id: Yup.number().positive().required(),
            
         }),
-        onSubmit: async (replacement) => await createEditAttempt.mutateAsync(replacement),
+        onSubmit: async (routine) => await createEditAttempt.mutateAsync(routine),
     });
-    const createEditAttempt = createEditPrescription(formik.setErrors, formik.values);
-
-    const { data:diseases } = getDiseases();
+    const createEditAttempt = createEditRoutine(formik.setErrors, formik.values);
    
     return(
         <AuthenticateLayout>
@@ -45,7 +43,7 @@ export const CreateEditPrescription = ({navigation,route}) => {
             <View className="flex-1 items-center justify-center p-8">
                 <View className="w-full max-w-sm">
                     <Text className="text-lg font-extrabold text-gray-200 text-center mb-2">
-                        {formik.values.id == "" ? "Add new Prescription" : "Update Prescription"}
+                        {formik.values.id == "" ? "Add new Routine" : "Update Routine"}
                     </Text>
 
                     <TxtInput placeholder="Medication Name"

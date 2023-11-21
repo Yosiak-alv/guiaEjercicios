@@ -4,6 +4,7 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { AuthStackNavigator, GuestStackNavigator } from './src/Navigations/Navigator';
 import {getAuthToken} from './src/context/AuthContext';
+import { logout } from './src/context/AuthContext';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 import axiosRoute from './src/utils/route';
@@ -19,6 +20,8 @@ export default function App() {
   useEffect(() => {
     checkLoginStatus();
   }, []);
+
+  //logout();
 
   const checkLoginStatus = async () => {
     await axiosRoute.boot();
