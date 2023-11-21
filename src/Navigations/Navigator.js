@@ -5,10 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-import { PrescriptionsList } from "../screens/Prescriptions/PrescriptionsList";
 import { Home } from "../screens/Home";
-import { DetailPrescription } from "../screens/Prescriptions/DetailPrescription";
-import { CreateEditPrescription } from "../screens/Prescriptions/CreateEditPrescription";
 import { Login } from "../screens/Login";
 import { Register } from "../screens/Register";
 
@@ -52,23 +49,12 @@ const BottomTabNavigator = () => {
                 }}
             />
             <Tab.Screen
-                name="PrescriptionsList"
-                component={PrescriptionsList}
-                options={{
-                    tabBarLabel: '',
-                    tabBarIcon: ({focused}) => (
-                        BottomTabItemIcon(Ionicons,24,'md-receipt-outline',focused) 
-                    ),
-                }}
-                initialParams={{level: '', flashMessage: ''}}
-            />
-            <Tab.Screen
                 name="RoutinesList"
                 component={RoutinesList}
                 options={{
                     tabBarLabel: '',
                     tabBarIcon: ({focused}) => (
-                        BottomTabItemIcon(Ionicons,24,'md-receipt-outline',focused) 
+                        BottomTabItemIcon(Ionicons,24,'bicycle',focused) 
                     ),
                 }}
                 initialParams={{level: '', flashMessage: ''}}
@@ -79,7 +65,7 @@ const BottomTabNavigator = () => {
                 options={{
                     tabBarLabel: '',
                     tabBarIcon: ({focused}) => (
-                        BottomTabItemIcon(Ionicons,24,'md-receipt-outline',focused) 
+                        BottomTabItemIcon(Ionicons,24,'pulse',focused) 
                     ),
                 }}
                 initialParams={{level: '', flashMessage: ''}}
@@ -101,15 +87,13 @@ export const AuthStackNavigator = () => {
             <Stack.Screen name="Home" component={BottomTabNavigator} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register} />
-            <Stack.Screen name="DetailPrescription" component={DetailPrescription} />
-            <Stack.Screen name="CreateEditPrescription" component={CreateEditPrescription} />
 
             <Stack.Screen name="RoutinesList" component={RoutinesList} />
             <Stack.Screen name="DetailRoutine" component={DetailRoutine} />
             <Stack.Screen name="CreateEditRoutine" component={CreateEditRoutine} />
 
             <Stack.Screen name="HealthList" component={HealthList} />
-            {/* <Stack.Screen name="DetailHealth" component={DetailHealth} /> */}
+            <Stack.Screen name="DetailHealth" component={DetailHealth} /> 
             <Stack.Screen name="CreateEditHealth" component={CreateEditHealth} />
         </Stack.Navigator>
     )
@@ -122,8 +106,6 @@ export const GuestStackNavigator = () => {
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="Home" component={BottomTabNavigator} />
-            <Stack.Screen name="DetailPrescription" component={DetailPrescription} />
-            <Stack.Screen name="CreateEditPrescription" component={CreateEditPrescription} />
 
             <Stack.Screen name="RoutinesList" component={RoutinesList} />
             <Stack.Screen name="DetailRoutine" component={DetailRoutine} />

@@ -14,8 +14,7 @@ export const HealthList = ({navigation,route}) => {
     
     //flash message
     const {level, flashMessage} = route.params;
-    const {data:healths, isLoading, isError, isFetching, error} = getHealths
-    ();
+    const {data:healths, isLoading, isError, isFetching, error} = getHealths();
 
     const [filterHealths,setFilterHealths] = useState(healths?.data);
     const [search, setSearch] = useState('');
@@ -25,13 +24,11 @@ export const HealthList = ({navigation,route}) => {
         const textSearch = text.toLowerCase();
         if(text.trim().length !== 0 ){
             let filteredData = healths?.data.filter((health) => {
-                const lowerName = health.weight.toString();
-                const lowerDescription = health.height.toString();
-                const lowerType = health.bmi.toString();
+                const lowerBMI = health.bmi.toString();
+                const lowerDate = health.date.toString();
                 return (
-                    lowerName.includes(textSearch.trim()) ||
-                    lowerDescription.includes(textSearch.trim()) ||
-                    lowerType.includes(textSearch.trim())
+                    lowerBMI.includes(textSearch.trim()) ||
+                    lowerDate.includes(textSearch.trim()) 
                 );
             });
             setFilterHealths(filteredData);
@@ -45,14 +42,14 @@ export const HealthList = ({navigation,route}) => {
             <Card>
                 <View className="flex flex-row py-2" >
                     <View className="mt-2">
-                        <MaterialIcons name="receipt" size={30} color="white" />
+                        <MaterialIcons name="access-time" size={30} color="white" />
                     </View>
                     <View className="grow">
                         <View className="ml-4" >
-                            <Text className="text-gray-200 text-md font-bold ">{health.weight}</Text>
+                            <Text className="text-gray-200 text-md font-bold ">{health.bmi}</Text>
                         </View>
                         <View className="ml-4" >
-                            <Text className="text-gray-200 text-md font-bold ">{health.height}</Text>
+                            <Text className="text-gray-200 text-md font-bold ">{health.date}</Text>
                         </View>
                     </View>
                     <View className="mt-2">
@@ -82,7 +79,6 @@ export const HealthList = ({navigation,route}) => {
                                     blood_pressure: '',
                                     blood_sugar: '',
                                     date: ''
-                                   
                                 }), setSearch(''))} message="ADD"/>
                         </View>
                     </View>

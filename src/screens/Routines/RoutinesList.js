@@ -44,7 +44,7 @@ export const RoutinesList = ({navigation,route}) => {
             <Card>
                 <View className="flex flex-row py-2" >
                     <View className="mt-2">
-                        <MaterialIcons name="receipt" size={30} color="white" />
+                        <MaterialIcons name="accessibility-new" size={30} color="white" />
                     </View>
                     <View className="grow">
                         <View className="ml-4" >
@@ -103,7 +103,7 @@ export const RoutinesList = ({navigation,route}) => {
                         isLoading || isFetching ? (
                             <ActivityIndicator size="large" style={{marginVertical:16}} color="white"/>
                         ): isError ? (
-                            <Messages message={`Here was a problem processing Routines : ${error.message}`} level={'error'}/>
+                            <Messages message={`There was a problem processing Routines : ${error.message}`} level={'error'}/>
                             
                         ) : routines?.data.length != 0 ? (
                             <FlatList
@@ -113,7 +113,7 @@ export const RoutinesList = ({navigation,route}) => {
                                 style={{flex: 1}}
                             /> 
                         ): (
-                            <Messages message={'No data of Prescriptions in our records ...'} level={'info'}/>
+                            <Messages message={'No data of Routines in our records ...'} level={'info'}/>
                         )
                     }
                 </View>

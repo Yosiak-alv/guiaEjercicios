@@ -3,18 +3,16 @@ import axiosRoute from "../utils/route";
 import {useState} from "react";
 import {useNavigation} from "@react-navigation/native";
 
-export const fetchHealth = async () =>  (await axiosRoute.get('health.index')).data;
-export const fetchOneHealth = async (id) => (await axiosRoute.get('health.show', id)).data;
-const storeHealth = (health) => (axiosRoute.post('health.store', null, health));
-const updateHealth = (health) => (axiosRoute.put('health.update', health.id, health));
-const destroyHealth = (health) => axiosRoute.delete('health.destroy', health.id);
+export const fetchHealths = async () =>  (await axiosRoute.get('healths.index')).data;
+export const fetchOneHealth = async (id) => (await axiosRoute.get('healths.show', id)).data;
+const storeHealth = (health) => (axiosRoute.post('healths.store', null, health));
+const updateHealth = (health) => (axiosRoute.put('healths.update', health.id, health));
+const destroyHealth = (health) => axiosRoute.delete('healths.destroy', health.id);
 
 export const getHealths = () => {
-
     const {data, isLoading, isError, isFetching, error} = useQuery({
-
         queryKey: ['healths'],
-        queryFn: () => fetchHealth(),
+        queryFn: () => fetchHealths(),
         onError: (error) => {console.log(error)},
         onSuccess:(data) => console.log(data?.data),
         refetchOnWindowFocus:false
@@ -46,7 +44,7 @@ export const createEditHealth = (formikErrors, health) => {
         },
         onSuccess: (data) => {
             queryClient.invalidateQueries(['healths']);
-            navigation.navigate('Home', {screen: 'HealthsList',
+            navigation.navigate('Home', {screen: 'HealthList',
                 params: {
                     level: 'success',
                     flashMessage: data?.data?.message/*  flashMessage: data?.data?.message */

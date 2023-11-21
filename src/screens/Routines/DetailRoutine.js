@@ -67,7 +67,7 @@ export const DetailRoutine = ({navigation, route}) => {
                                         <Card>
                                             <View className="flex flex-row justify-between">
                                                 <View className="py-2">
-                                                    <Ionicons name="receipt" size={62} color="#F1F6F5" />
+                                                    <Ionicons name="football" size={62} color="#F1F6F5" />
                                                 </View>
                                                 <View>
                                                     <View>

@@ -20,14 +20,16 @@ export const CreateEditHealth = ({navigation,route}) => {
             height: route.params.height ?? "",
             bmi: route.params.bmi ?? "",
             blood_pressure: route.params.blood_pressure ?? "",
-            blood_sugar: route.params.blood_sugar ?? ""
+            blood_sugar: route.params.blood_sugar ?? "",
+            date: route.params.date ?? "",
         },
         validationSchema: Yup.object().shape({
             weight: Yup.string().required(),
             height: Yup.string().required(),
             bmi: Yup.string().required(),
             blood_pressure: Yup.string().required(),
-            blood_sugar: Yup.string().required()
+            blood_sugar: Yup.string().required(),
+            date: Yup.string().required().matches(/(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/),
         }),
         
         onSubmit: async (health) => await createEditAttempt.mutateAsync(health),
@@ -54,7 +56,7 @@ export const CreateEditHealth = ({navigation,route}) => {
                         {formik.touched?.weight && formik.errors?.weight}
                     </Text>
 
-                    <TxtInput placeholder="Height"
+                    <TxtInput placeholder="Height in cm"
                         value={formik.values.height}
                         onChangeText={formik.handleChange('height')}
                     />
@@ -70,7 +72,7 @@ export const CreateEditHealth = ({navigation,route}) => {
                         {formik.touched?.bmi && formik.errors?.bmi}
                     </Text>
                     
-                    <TxtInput placeholder="Blood Pressure"
+                    <TxtInput placeholder="Blood Pressure in mmHg"
                         value={formik.values.blood_pressure}
                         onChangeText={formik.handleChange('blood_pressure')}
                     />
@@ -78,7 +80,7 @@ export const CreateEditHealth = ({navigation,route}) => {
                         {formik.touched?.blood_pressure && formik.errors?.blood_pressure}
                     </Text>
 
-                    <TxtInput placeholder="Blood Sugar"
+                    <TxtInput placeholder="Blood Sugar in mmHg"
                         value={formik.values.blood_sugar}
                         onChangeText={formik.handleChange('blood_sugar')}
                     />
@@ -86,8 +88,15 @@ export const CreateEditHealth = ({navigation,route}) => {
                         {formik.touched?.blood_sugar && formik.errors?.blood_sugar}
                     </Text>
 
-    
+                    <TxtInput placeholder="Date : fmt(YYYY-MM-DD HH:MM:SS)"
+                        value={formik.values.date}
+                        onChangeText={formik.handleChange('date')}
+                    />
+                    <Text className="text-red-500 capitalize-first">
+                        {formik.touched?.date && formik.errors?.date}
+                    </Text>
 
+    
                     <View className="block w-full mt-2">
                         {formik.isSubmitting ? (<ActivityIndicator size="large" style={{marginVertical:16}} color="white"/>) : (
                             <PrimaryButton onPress={formik.handleSubmit} message={formik.values.id == "" ? "Store" : "Update"} />
