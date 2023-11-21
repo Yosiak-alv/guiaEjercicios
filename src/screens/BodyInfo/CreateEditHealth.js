@@ -10,7 +10,7 @@ import * as Yup from 'yup';
 import { SelectInput } from '../../components/SelectInput';
 import { createEditHealth } from '../../hooks/HealthHook';
 import { TxtInput } from '../../components/TxtInput';
-
+import { FormikInput } from '../../components/FormikInput';
 
 export const CreateEditHealth = ({navigation,route}) => {
     const formik = useFormik({
@@ -46,56 +46,13 @@ export const CreateEditHealth = ({navigation,route}) => {
                     <Text className="text-lg font-extrabold text-gray-200 text-center mb-2">
                         {formik.values.id == "" ? "Add new Body Health Information" : "Update Information"}
                     </Text>
-
-                    <TxtInput placeholder="Weight"
-                        value={formik.values.weight}
-                        onChangeText={formik.handleChange('weight')}
-                    />
-
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.weight && formik.errors?.weight}
-                    </Text>
-
-                    <TxtInput placeholder="Height in cm"
-                        value={formik.values.height}
-                        onChangeText={formik.handleChange('height')}
-                    />
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.height && formik.errors?.height}
-                    </Text>
-
-                    <TxtInput placeholder="bmi"
-                        value={formik.values.bmi}
-                        onChangeText={formik.handleChange('bmi')}
-                    />
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.bmi && formik.errors?.bmi}
-                    </Text>
                     
-                    <TxtInput placeholder="Blood Pressure in mmHg"
-                        value={formik.values.blood_pressure}
-                        onChangeText={formik.handleChange('blood_pressure')}
-                    />
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.blood_pressure && formik.errors?.blood_pressure}
-                    </Text>
-
-                    <TxtInput placeholder="Blood Sugar in mmHg"
-                        value={formik.values.blood_sugar}
-                        onChangeText={formik.handleChange('blood_sugar')}
-                    />
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.blood_sugar && formik.errors?.blood_sugar}
-                    </Text>
-
-                    <TxtInput placeholder="Date : fmt(YYYY-MM-DD HH:MM:SS)"
-                        value={formik.values.date}
-                        onChangeText={formik.handleChange('date')}
-                    />
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.date && formik.errors?.date}
-                    </Text>
-
+                    <FormikInput placeholder={'Weight'} formik={formik} valueName={'weight'} label={formik.values.id == '' ? '':'Weight'}/>
+                    <FormikInput placeholder={'Height'} formik={formik} valueName={'height'} label={formik.values.id == '' ? '':'Height'}/>
+                    <FormikInput placeholder={'BMI'} formik={formik} valueName={'bmi'} label={formik.values.id == '' ? '':'BMI'}/>
+                    <FormikInput placeholder={'Blood Pressure'} formik={formik} valueName={'blood_pressure'} label={formik.values.id == '' ? '':'Blood Pressure'}/>
+                    <FormikInput placeholder={'Blood Sugar'} formik={formik} valueName={'blood_sugar'} label={formik.values.id == '' ? '':'Blood Sugar'}/>
+                    <FormikInput placeholder={'Date: fmt(YYYY-MM-DD HH:MM:SS)'} formik={formik} valueName={'date'} label={formik.values.id == '' ? '':'Date: fmt(YYYY-MM-DD HH:MM:SS)'}/>
     
                     <View className="block w-full mt-2">
                         {formik.isSubmitting ? (<ActivityIndicator size="large" style={{marginVertical:16}} color="white"/>) : (

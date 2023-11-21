@@ -10,7 +10,7 @@ import * as Yup from 'yup';
 import { SelectInput } from '../../components/SelectInput';
 import { createEditRoutine } from '../../hooks/RoutineHook';
 import { TxtInput } from '../../components/TxtInput';
-
+import { FormikInput } from '../../components/FormikInput';
 
 export const CreateEditRoutine = ({navigation,route}) => {
     const formik = useFormik({
@@ -50,73 +50,14 @@ export const CreateEditRoutine = ({navigation,route}) => {
                         {formik.values.id == "" ? "Add new Routine" : "Update Routine"}
                     </Text>
 
-                    <TxtInput placeholder="Routine Name"
-                        value={formik.values.routine_name}
-                        onChangeText={formik.handleChange('routine_name')}
-                    />
-
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.routine_name && formik.errors?.routine_name}
-                    </Text>
-
-                    <TxtInput placeholder="Routine Description"
-                        value={formik.values.routine_description}
-                        onChangeText={formik.handleChange('routine_description')}
-                    />
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.routine_description && formik.errors?.routine_description}
-                    </Text>
-
-                    <TxtInput placeholder="Routine Duration"
-                        value={formik.values.routine_duration}
-                        onChangeText={formik.handleChange('routine_duration')}
-                    />
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.routine_duration && formik.errors?.routine_duration}
-                    </Text>
-                    
-                    <TxtInput placeholder="Routine Type"
-                        value={formik.values.routine_type}
-                        onChangeText={formik.handleChange('routine_type')}
-                    />
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.routine_type && formik.errors?.routine_type}
-                    </Text>
-
-                    <TxtInput placeholder="Recommended Weight"
-                        value={formik.values.recommended_weight}
-                        onChangeText={formik.handleChange('recommended_weight')}
-                    />
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.recommended_weight && formik.errors?.recommended_weight}
-                    </Text>
-
-                    <TxtInput placeholder="Recommended BMI"
-                        value={formik.values.recommended_BMI}
-                        onChangeText={formik.handleChange('recommended_BMI')}
-                    />
-
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.recommended_BMI && formik.errors?.recommended_BMI}
-                    </Text>
-
-                    <TxtInput placeholder="Recommended Blood Pressure"
-                        value={formik.values.recommended_blood_pressure}
-                        onChangeText={formik.handleChange('recommended_blood_pressure')}
-                    />
-
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.recommended_blood_pressure && formik.errors?.recommended_blood_pressure}
-                    </Text>
-
-                    <TxtInput placeholder="Recommended Blood Sugar"
-                        value={formik.values.recommended_blood_sugar}
-                        onChangeText={formik.handleChange('recommended_blood_sugar')}
-                    />
-
-                    <Text className="text-red-500 capitalize-first">
-                        {formik.touched?.recommended_blood_sugar && formik.errors?.recommended_blood_sugar}
-                    </Text>
+                    <FormikInput placeholder={'Routine Name'} formik={formik} valueName={'routine_name'} label={formik.values.id == '' ? '':'Routine Name'}/>
+                    <FormikInput placeholder={'Routine Description'} formik={formik} valueName={'routine_description'} label={formik.values.id == '' ? '':'Routine Description'}/>
+                    <FormikInput placeholder={'Routine Duration'} formik={formik} valueName={'routine_duration'} label={formik.values.id == '' ? '':'Routine Duration'}/>
+                    <FormikInput placeholder={'Routine Type'} formik={formik} valueName={'routine_type'} label={formik.values.id == '' ? '':'Routine Type'}/>
+                    <FormikInput placeholder={'Recommended Weight'} formik={formik} valueName={'recommended_weight'} label={formik.values.id == '' ? '':'Recommended Weight'}/>
+                    <FormikInput placeholder={'Recommended BMI'} formik={formik} valueName={'recommended_BMI'} label={formik.values.id == '' ? '':'Recommended BMI'}/>
+                    <FormikInput placeholder={'Recommended Blood Pressure'} formik={formik} valueName={'recommended_blood_pressure'} label={formik.values.id == '' ? '':'Recommended Blood Pressure'}/>
+                    <FormikInput placeholder={'Recommended Blood Sugar'} formik={formik} valueName={'recommended_blood_sugar'} label={formik.values.id == '' ? '':'Recommended Blood Sugar'}/>
 
                     <View className="block w-full mt-2">
                         {formik.isSubmitting ? (<ActivityIndicator size="large" style={{marginVertical:16}} color="white"/>) : (

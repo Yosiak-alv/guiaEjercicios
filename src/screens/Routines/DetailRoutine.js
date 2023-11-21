@@ -80,7 +80,7 @@ export const DetailRoutine = ({navigation, route}) => {
                                                             recommended_weight: routine?.data.recommended_weight,
                                                             recommended_BMI: routine?.data.recommended_BMI,
                                                             recommended_blood_pressure: routine?.data.recommended_blood_pressure,
-                                                            recommeded_blood_sugar: routine?.data.recommeded_blood_sugar,
+                                                            recommended_blood_sugar: routine?.data.recommended_blood_sugar,
                                                         })}/>
                                                     </View>
                                                     <View className="mt-2">

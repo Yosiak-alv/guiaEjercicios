@@ -110,6 +110,8 @@ export const GuestStackNavigator = () => {
             <Stack.Screen name="RoutinesList" component={RoutinesList} />
             <Stack.Screen name="DetailRoutine" component={DetailRoutine} />
             <Stack.Screen name="CreateEditRoutine" component={CreateEditRoutine} />
+            <Stack.Screen name="DetailHealth" component={DetailHealth} /> 
+            <Stack.Screen name="CreateEditHealth" component={CreateEditHealth} />
 
         </Stack.Navigator>
     )
