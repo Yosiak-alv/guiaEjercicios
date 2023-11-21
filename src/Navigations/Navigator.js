@@ -16,6 +16,12 @@ import { RoutinesList } from "../screens/Routines/RoutinesList";
 import { DetailRoutine } from "../screens/Routines/DetailRoutine";
 import { CreateEditRoutine } from "../screens/Routines/CreateEditRoutine";
 
+import { HealthList } from "../screens/BodyInfo/HealthList";
+import { DetailHealth } from "../screens/BodyInfo/DetailHealth";
+import { CreateEditHealth } from "../screens/BodyInfo/CreateEditHealth";
+
+
+
 
 const Tab = createBottomTabNavigator();
 const screenOptionsTabStyle = {
@@ -67,6 +73,17 @@ const BottomTabNavigator = () => {
                 }}
                 initialParams={{level: '', flashMessage: ''}}
             />
+             <Tab.Screen
+                name="HealthList"
+                component={HealthList}
+                options={{
+                    tabBarLabel: '',
+                    tabBarIcon: ({focused}) => (
+                        BottomTabItemIcon(Ionicons,24,'md-receipt-outline',focused) 
+                    ),
+                }}
+                initialParams={{level: '', flashMessage: ''}}
+            />
            
         </Tab.Navigator>
     )
@@ -91,6 +108,9 @@ export const AuthStackNavigator = () => {
             <Stack.Screen name="DetailRoutine" component={DetailRoutine} />
             <Stack.Screen name="CreateEditRoutine" component={CreateEditRoutine} />
 
+            <Stack.Screen name="HealthList" component={HealthList} />
+            {/* <Stack.Screen name="DetailHealth" component={DetailHealth} /> */}
+            <Stack.Screen name="CreateEditHealth" component={CreateEditHealth} />
         </Stack.Navigator>
     )
 };
