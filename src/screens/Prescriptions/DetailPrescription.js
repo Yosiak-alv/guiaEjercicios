@@ -101,7 +101,7 @@ export const DetailPrescription = ({navigation, route}) => {
                                                 <Text className="text-gray-200 text-lg font-bold" >Initial Date : </Text> {prescription?.data.date}
                                             </Text><Text>{`\n`}</Text>
                                             <Text className="text-gray-200 text-lg text-center" > 
-                                                <Text className="text-gray-200 text-lg font-bold" >Each: </Text> {prescription?.data.each}
+                                                <Text className="text-gray-200 text-lg font-bold" >Each (Hours): </Text> {prescription?.data.each}
                                             </Text><Text>{`\n`}</Text>
                                             <Text className="text-gray-200 text-lg text-center" > 
                                                 <Text className="text-gray-200 text-lg font-bold" >Next Dose: </Text> {prescription?.data.next_dose}
