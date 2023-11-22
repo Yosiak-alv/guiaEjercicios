@@ -5,6 +5,11 @@
 ### Josias Isaac Alvarenga Romero AR200778
 ### Alfonso Antonio Fernández Cotto FC200910
 
+## Ubicación de Ejercicios
+Se han realizado los ejercicios 3 y 4 de la guia asignada. La solución al ejercicio 3
+se encuentra en la branch "master". La solución al ejercicio 4 se encuentra en la
+branch "ejercicio4".
+
 ## Requisitos Previos
 Antes de comenzar, asegúrate de tener instalado Node.js en tu sistema. Puedes
 descargarlo e instalarlo desde [nodejs.org](https://nodejs.org/).
